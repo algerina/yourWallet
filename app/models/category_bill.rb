@@ -1,0 +1,2 @@
+class CategoryBill < ApplicationRecord
+end
