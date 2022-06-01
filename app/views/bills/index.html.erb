@@ -1,8 +1,6 @@
-<p style="color: green"><%= notice %></p>
+<%= render partial: "shared/header", locals: { title: "ALL TRANSACTIONS" } %>
 
-<h1>Bills</h1>
-
-<div id="bills">
+<div>
   <% @bills.each do |bill| %>
     <%= render bill %>
     <p>
@@ -11,4 +9,27 @@
   <% end %>
 </div>
 
-<%= link_to "New bill", new_bill_path %>
+
+<div>
+   <% @category_bills.each do |category_bill| %>
+      <div class="border border-1 d-flex my-3">
+        <img src="https://picsum.photos/200" width="80px">
+
+        <%= label_tag category.name %>
+      <%= check_box_tag "categories[#{category.id}]", category.name %>
+
+        <h3 
+          class="m-2"><%= category_bill.bill.name %> 
+          <span class="d-block fs-6 fw-lighter mt-3"><%= "#{category_bill.created_at.day}/#{category_bill.created_at.month}/#{category_bill.created_at.year}" %></span>
+        </h3>
+        <div class="ms-auto pt-5 pe-3">
+          <%= category_bill.bill.amount %> $
+        </div>
+      </div>
+  <% end %>
+
+
+  <div class="fixed-bottom mb-3 text-center">
+   <%= link_to "New Transaction", new_category_bill_path, class:"btn green fs-3 w-75"  %>
+  </div>
+</div>

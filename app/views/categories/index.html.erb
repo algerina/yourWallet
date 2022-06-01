@@ -1,14 +1,22 @@
-<p style="color: green"><%= notice %></p>
+<%= render partial: "shared/navbar", locals: { title: "ALL TRANSACTIONS" } %>
+<section class="container">
 
-<h1>Categories</h1>
-
-<div id="categories">
   <% @categories.each do |category| %>
-    <%= render category %>
-    <p>
-      <%= link_to "Show this category", category %>
-    </p>
-  <% end %>
-</div>
+    <%= link_to category_bills_path(category), class: "text-reset text-decoration-none" do %>
+      <div class="border border-1 d-flex my-3">
+        <img src="<%= category.icon%>" width="80px">
+        <h3 
+          class="m-2"><%= category.name %> 
+          <%# <span class="d-block fs-6 fw-lighter mt-3"> <%= category.date %></span> %>
+        </h3>
+      
+       
+      </div>
+    <% end %>
+ <% end %>
 
-<%= link_to "New category", new_category_path %>
+  <div class="fixed-bottom mb-3 text-center">
+   <%= link_to 'Add New Category', new_category_path, class:"btn green"  %>
+  </div>
+
+</section>

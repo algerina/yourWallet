@@ -1,27 +1,17 @@
-<%= form_with(model: bill) do |form| %>
-  <% if bill.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(bill.errors.count, "error") %> prohibited this bill from being saved:</h2>
+ <%= form_with url: category_bills_path, method: :post do |f| %>
+    <div class="field my-3">
+      <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "name", :required => true %>
+    </div>
 
-      <ul>
-        <% bill.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+    <div class="field my-3">
+      <%= f.number_field :amount, autofocus: true, class: "form-control", placeholder: "amount", :required => true%>
+    </div>
+
+    <div class="field my-3">
+      <%= f.select :categories, options_from_collection_for_select(@categories, 'id', 'name'), {}, { class: "form-control" }%>
+    </div>
+
+    <div class="text-center">
+      <%= f.submit "Add Transaction",  class: "btn blue" %>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :amount, style: "display: block" %>
-    <%= form.text_field :amount %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>

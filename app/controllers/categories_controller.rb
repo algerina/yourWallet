@@ -1,9 +1,10 @@
 class CategoriesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_category, only: %i[ show edit update destroy ]
 
   # GET /categories or /categories.json
   def index
-    @categories = current_user.categories
+    @categories = Category.where(author: current_user)
   end
 
   # GET /categories/new
@@ -14,11 +15,11 @@ class CategoriesController < ApplicationController
 
   # POST /categories or /categories.json
   def create
-    @category = current_user.Category.new(category_params)
-
+    @category = Category.new(category_params)
+    @category.author = current_user
     respond_to do |format|
       if @category.save
-        redirect_to groups_path, notice: 'Category has been created!'
+        format.html { redirect_to categories_url, notice: 'Category was successfully created.' }
       else
         flash[:alert] = 'Something went wrong, Try again!'
       render :new
