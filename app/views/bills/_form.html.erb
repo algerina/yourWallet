@@ -1,4 +1,4 @@
- <%= form_with model: @category_bill do |f| %>
+ <%= form_with model: @bill, url: category_bills_url do |f| %>
     <div class="field my-3">
       <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "name", :required => true %>
     </div>
@@ -6,9 +6,15 @@
     <div class="field my-3">
       <%= f.number_field :amount, autofocus: true, class: "form-control", placeholder: "amount", :required => true%>
     </div>
-
-    <div class="field my-3">
-      <%= f.select :categories, options_from_collection_for_select(@categories, 'id', 'name'), {}, { class: "form-control" }%>
+    
+    <div class="card checkbox">
+      <%= f.label :categories, 'Select a Category', class: 'title' %><br>
+      <%= f.collection_check_boxes :category_ids, Category.where(author_id: 1), :id, :name do |cat| %>
+        <div class="checkbox-div" >
+          <%= cat.check_box %>
+          <%= cat.label %><br>
+        </div>
+      <% end %>
     </div>
 
     <div class="text-center">

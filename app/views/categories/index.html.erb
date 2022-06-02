@@ -4,7 +4,7 @@
   <% @categories.each do |category| %>
     <%= link_to category_bills_path(category), class: "text-reset text-decoration-none" do %>
       <div class="border border-1 d-flex my-3">
-        <img src="<%= category.icon%>" width="10%" height="10%">
+        <%= image_tag(category.icon, :alt => 'menu', :width => '55px', :height => '55px') %>
         <h3 class="m-2"><%= category.name %> 
 
             <span class="d-block fs-6 fw-lighter mt-3"><%= category.created_at %></span>
