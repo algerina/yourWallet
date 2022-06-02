@@ -22,3 +22,8 @@
   background-color: #5fb523;
   color: white;
 }
+
+.name {
+  display: flex;
+  flex-directio: row;
+}

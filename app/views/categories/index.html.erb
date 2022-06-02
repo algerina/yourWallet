@@ -3,15 +3,17 @@
 <section class="container">
   <% @categories.each do |category| %>
     <%= link_to category_bills_path(category), class: "text-reset text-decoration-none" do %>
-      <div class="border border-1 d-flex my-3">
-        <%= image_tag(category.icon, :alt => 'menu', :width => '55px', :height => '55px') %>
-        <h3 class="m-2"><%= category.name %> 
+      <div class="category d-flex p-2 bg-white border-gray-1 rounded my-1">
+        <%= image_tag(category.icon, :alt => 'menu', :width => '80px', :height => '80px', class:'category-image align-self-center border border-gray-1 rounded') %>
+        <div class="flex-grow-1 d-flex flex-column justify-content-end mx-1">
+        <h3 class="color-text font-proxima-bold fs-6 no-link">
+        <%= category.name %> </h3> 
 
-            <span class="d-block fs-6 fw-lighter mt-3"><%= category.created_at %></span>
-            <div class="ms-auto pt-5 pe-3">
-             <span>$<%= category.bills.map { |b| b.amount }.sum %></span>
+            <span class="category-date color-text text-decoration-none font-proxima-light"><%= category.created_at %></span>
+            <div class="ms-auto amount pt-3 pe-3">
+             <span class="align-self-center color-text text-decoration-none font-proxima-light">$<%= category.bills.map { |b| b.amount }.sum %></span>
         </div>
-         </h3>
+         </div>
 
       </div>
     <% end %>

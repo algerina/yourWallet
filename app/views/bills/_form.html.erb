@@ -7,10 +7,10 @@
       <%= f.number_field :amount, autofocus: true, class: "form-control", placeholder: "amount", :required => true%>
     </div>
     
-    <div class="card checkbox">
-      <%= f.label :categories, 'Select a Category', class: 'title' %><br>
+    <div class="card checkbox m-3">
+       <h3><%= f.label :categories, 'Select a Category', class: 'title m-3' %> </h3><br>
       <%= f.collection_check_boxes :category_ids, Category.where(author_id: 1), :id, :name do |cat| %>
-        <div class="checkbox-div" >
+        <div class="checkbox-div m-3" >
           <%= cat.check_box %>
           <%= cat.label %><br>
         </div>
@@ -18,6 +18,6 @@
     </div>
 
     <div class="text-center">
-      <%= f.submit "Add Transaction",  class: "btn blue" %>
+      <%= f.submit "Add Transaction", class:"btn green btn-lg m-4"  %>
     </div>
   <% end %>

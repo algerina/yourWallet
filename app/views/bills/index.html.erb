@@ -1,11 +1,8 @@
 <%= render partial: "shared/header", locals: { title: "ALL TRANSACTIONS" } %>
 
-<div>
+<div class="container m-3">
   <% @category.recent_bills.each do |bill| %>
     <%= render bill %>
-    <p>
-      <%# <%= link_to "Show this bill", bill %> %>
-    </p>
   <% end %>
 </div>
 
