@@ -12,5 +12,5 @@ Rails.application.routes.draw do
     resources :bills, only: [:new, :create, :index]
   end
 
-  root to: 'spalsh#index'
+  root to: 'splash#index'
 end

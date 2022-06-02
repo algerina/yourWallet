@@ -34,6 +34,7 @@ class BillsController < ApplicationController
       @bill = Bill.find(params[:id])
     end
 
+
     # Only allow a list of trusted parameters through.
     def bill_params
       params.require(:bill).permit(:name, :amount)

@@ -1,4 +1,4 @@
- <%= form_with url: category_bills_path, method: :post do |f| %>
+ <%= form_with model: @category_bill do |f| %>
     <div class="field my-3">
       <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "name", :required => true %>
     </div>
