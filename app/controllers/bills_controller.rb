@@ -28,11 +28,6 @@ class BillsController < ApplicationController
   end
   private
 
-    # # Use callbacks to share common setup or constraints between actions.
-    # def set_bill
-    #   @bill = Bill.find(params[:id])
-    # end
-
     # Only allow a list of trusted parameters through.
     def bill_params
       params.require(:bill).permit(:name, :amount, category_ids: [])

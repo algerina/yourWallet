@@ -9,7 +9,7 @@
     
     <div class="card checkbox m-3">
        <h3><%= f.label :categories, 'Select a Category', class: 'title m-3' %> </h3><br>
-      <%= f.collection_check_boxes :category_ids, Category.where(author_id: 1), :id, :name do |cat| %>
+      <%= f.collection_check_boxes :category_ids, Category.where(author_id: current_user), :id, :name do |cat| %>
         <div class="checkbox-div m-3" >
           <%= cat.check_box %>
           <%= cat.label %><br>

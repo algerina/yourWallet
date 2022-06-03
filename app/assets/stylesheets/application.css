@@ -27,3 +27,8 @@
   display: flex;
   flex-directio: row;
 }
+
+.links {
+  display: flex;
+  flex-direction: column;
+}

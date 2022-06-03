@@ -1,12 +1,12 @@
 <%= render partial: "shared/header", locals: { title: "ALL TRANSACTIONS" } %>
 
-<div class="container m-3">
+<div class="container  p-2 bg-white border-gray-1 rounded   mt-3 mb-3"">
   <% @category.recent_bills.each do |bill| %>
     <%= render bill %>
   <% end %>
 </div>
 
-  <div class="fixed-bottom mb-3 text-center">
-   <%= link_to "New Transaction", new_category_bill_path, class:"btn green fs-3 w-75"  %>
+  <div class="fixed-bottom text-center green">
+   <%= link_to "New Transaction", new_category_bill_path, class:"btn green btn-lg m-4 p-4 border-white d-grid gap-2 "  %>
   </div>
 </div>

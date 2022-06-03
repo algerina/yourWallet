@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container mt-5">
 <h2 class="text-center mt-4">Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
@@ -24,7 +24,7 @@
   </div>
 <% end %>
 
-<div class="d-flex justify-content-center">
+<div class="justify-content-center links m-3">
 <%= render "devise/shared/links", class:'text-center' %>
 </div>
 
