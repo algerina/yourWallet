@@ -6,5 +6,4 @@ class User < ApplicationRecord
 
   has_many :categories, foreign_key: 'author_id', class_name: 'Category'
   has_many :bills, foreign_key: 'author_id', class_name: 'Bill'
-
 end

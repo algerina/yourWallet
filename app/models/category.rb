@@ -10,6 +10,4 @@ class Category < ApplicationRecord
   def recent_bills
     bills.order('id ASC')
   end
-
-
 end
