@@ -1,0 +1,14 @@
+ <%= form_with model: @category do |form| %>
+    <div class="my-3">
+      <%= form.text_field :name, class: "form-control w-100", placeholder: "Name" %>
+    </div>
+
+    <div class="my-3">
+      <%= form.file_field :icon, class: "form-control w-100", placeholder: "Icon" %>
+    </div>
+
+    <div class="text-center m-3">
+      <%= form.submit "Save", class:"btn green btn-lg" %>
+    </div>
+
+  <% end %>

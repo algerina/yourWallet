@@ -1,0 +1,23 @@
+ <%= form_with model: @bill, url: category_bills_url do |f| %>
+    <div class="field my-3">
+      <%= f.text_field :name, autofocus: true, class: "form-control", placeholder: "name", :required => true %>
+    </div>
+
+    <div class="field my-3">
+      <%= f.number_field :amount, autofocus: true, class: "form-control", placeholder: "amount", :required => true%>
+    </div>
+    
+    <div class="card checkbox m-3">
+       <h3><%= f.label :categories, 'Select a Category', class: 'title m-3' %> </h3><br>
+      <%= f.collection_check_boxes :category_ids, Category.where(author_id: current_user), :id, :name do |cat| %>
+        <div class="checkbox-div m-3" >
+          <%= cat.check_box %>
+          <%= cat.label %><br>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="text-center">
+      <%= f.submit "Add Transaction", class:"btn green btn-lg m-4"  %>
+    </div>
+  <% end %>

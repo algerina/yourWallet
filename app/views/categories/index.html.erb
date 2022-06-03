@@ -1,0 +1,28 @@
+<section>
+<%= render partial: "shared/navbar", locals: { title: "ALL TRANSACTIONS" } %>
+
+<div class="container">
+  <% @categories.each do |category| %>
+    <%= link_to category_bills_path(category), class: "text-reset text-decoration-none" do %>
+      <div class="category d-flex p-2 bg-white border-gray-1 rounded   mt-3 mb-3">
+        <%= image_tag(category.icon, :alt => 'menu', :width => '80px', :height => '80px', class:'category-image align-self-center border border-gray-1 rounded') %>
+        <div class="flex-grow-1 d-flex flex-column justify-content-end mx-1">
+        <h3 class="color-text font-proxima-bold fs-6 no-link">
+        <%= category.name %> </h3> 
+
+            <span class="category-date color-text text-decoration-none font-proxima-light"><%= category.created_at %></span>
+            <div class="ms-auto amount pt-3 pe-3">
+             <span class="align-self-center color-text text-decoration-none font-proxima-light">$<%= category.bills.map { |b| b.amount }.sum %></span>
+        </div>
+         </div>
+
+      </div>
+    <% end %>
+ <% end %>
+
+  <div class="fixed-bottom text-center green ">
+   <%= link_to 'Add New Category', new_category_path, class:"btn green btn-lg m-4 p-4 border-white d-grid gap-2"  %>
+  </div>
+
+</div>
+</section>

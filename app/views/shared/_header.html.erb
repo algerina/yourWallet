@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-light blue text-light position-relative">
+  <div class="container-fluid">
+    <div class="d-flex align-items-center gap-4">
+      <%= link_to '<', categories_path, class: "text-light text-decoration-none fs-1 text"%>
+        <h2 class="text-center m-0">TRANSACTIONS</h2>
+      </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">                           
+        </ul>
+          <div class="d-flex justify-content-between gap-3 align-items-center">
+              <%if user_signed_in?%>                
+                  <strong>User:</strong>
+                  <%= current_user.email %>                
+                <%= button_to "Log Out", destroy_user_session_path, class: 'btn btn-outline-light', method: :delete  %>
+              <%end%>
+          </div>
+        </div>
+      </div>
+    </nav>
